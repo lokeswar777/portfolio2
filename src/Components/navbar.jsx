@@ -1,61 +1,68 @@
 import { useState } from 'react'
 import '../styles/Navbar.css'
 
-function Navbar({ currentSection, onSectionChange }) {
+function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const sections = ['home', 'about', 'skills', 'work', 'contact', 'projects']
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    const handleSectionClick = (sectionId) => {
-        onSectionChange(sections.indexOf(sectionId))
+    const handleLinkClick = () => {
         setIsMenuOpen(false)
     }
 
     return (
-        <header className="l-header">
-            <nav className="nav bd-grid">
-                <div id="nameofown">
-                    <a 
-                        href="#home" 
-                        className="nav__logo" 
-                        onClick={(e) => {
-                            e.preventDefault()
-                            handleSectionClick('home')
-                        }}
-                    >
+        <nav className="navbar">
+            <div className="navbar-container">
+                <div className="navbar-brand">
+                    <a href="#home" className="brand-link" onClick={handleLinkClick}>
                         Lokeswar
                     </a>
                 </div>
-
-                <div className={`nav__menu ${isMenuOpen ? 'active' : ''}`} id="nav-menu">
-                    <ul className="nav__list">
-                        {sections.map(section => (
-                            <li key={section} className="nav__item">
-                                <a 
-                                    href={`#${section}`}
-                                    className={`nav__link ${currentSection === sections.indexOf(section) ? 'active' : ''}`}
-                                    onClick={(e) => {
-                                        e.preventDefault()
-                                        handleSectionClick(section)
-                                    }}
-                                >
-                                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                                </a>
-                            </li>
-                        ))}
+                
+                <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a href="#home" className="nav-link" onClick={handleLinkClick}>
+                                Home
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#about" className="nav-link" onClick={handleLinkClick}>
+                                About
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#skills" className="nav-link" onClick={handleLinkClick}>
+                                Skills
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#work" className="nav-link" onClick={handleLinkClick}>
+                                Work
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#contact" className="nav-link" onClick={handleLinkClick}>
+                                Contact
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#projects" className="nav-link" onClick={handleLinkClick}>
+                                Projects
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
-                <div className="nav__toggle" onClick={toggleMenu}>
+                <div className="navbar-toggle" onClick={toggleMenu}>
                     <span className={`bar ${isMenuOpen ? 'active' : ''}`}></span>
                     <span className={`bar ${isMenuOpen ? 'active' : ''}`}></span>
                     <span className={`bar ${isMenuOpen ? 'active' : ''}`}></span>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
     )
 }
 
