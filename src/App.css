@@ -1,0 +1,217 @@
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* General Styles */
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.l-main {
+    margin-top: 4rem; /* Height of navbar */
+    height: calc(100vh - 4rem);
+    overflow: hidden;
+    position: relative;
+}
+
+.section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
+.section-title {
+    position: relative;
+    font-size: 2rem;
+    color: #31708e;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.bd-grid {
+    max-width: 1024px;
+    width: calc(100% - 2rem);
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 2rem;
+}
+
+/* Home */
+.home {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.home__container {
+    row-gap: 1rem;
+}
+
+.home__data {
+    align-self: center;
+    text-align: center;
+}
+
+.home__title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.home__title-color {
+    color: #31708e;
+}
+
+/* About */
+.about__container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.about__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Skills */
+.skills__container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.skills__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Work */
+.work__container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.work__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Contact */
+.contact__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact__input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #31708e;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.contact__button {
+    display: inline-block;
+    background-color: #31708e;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact__button:hover {
+    background-color: #245571;
+}
+
+/* Projects */
+.projects__container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.projects__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .home__title {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .bd-grid {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home__title {
+        font-size: 4.5rem;
+    }
+}
+
+/* Animation for section transitions */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section.active {
+    animation: fadeInUp 0.5s ease forwards;
+}
