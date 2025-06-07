@@ -45,7 +45,10 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar currentSection={sections[currentSection]} />
+      <Navbar 
+        currentSection={currentSection} 
+        onSectionChange={setCurrentSection} 
+      />
       <main className="l-main">
         {sections.map((sectionId, index) => (
           <section 
