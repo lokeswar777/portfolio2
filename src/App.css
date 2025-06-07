@@ -1,12 +1,17 @@
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4rem; /* Height of navbar */
+    scroll-padding-top: 4rem;
 }
 
 body {
     margin: 0;
     line-height: 1.6;
+    color: #2d3748;
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* General Styles */
@@ -17,7 +22,7 @@ body {
 }
 
 .l-main {
-    margin-top: 4rem; /* Height of navbar */
+    margin-top: 4rem;
 }
 
 .section {
@@ -28,19 +33,37 @@ body {
     align-items: center;
     padding: 4rem 2rem;
     box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.section:nth-child(even) {
+    background-color: #f8fafc;
 }
 
 .section:not(:last-child) {
-    border-bottom: 1px solid rgba(49, 112, 142, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-
 
 .section-title {
     position: relative;
-    font-size: 2rem;
-    color: #31708e;
-    margin-bottom: 2rem;
+    font-size: 2.25rem;
+    color: #1a365d;
+    margin-bottom: 2.5rem;
     text-align: center;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #2b6cb0, #3182ce);
+    border-radius: 2px;
 }
 
 .bd-grid {
@@ -58,6 +81,7 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    background: linear-gradient(to bottom right, #f8fafc, #ffffff);
 }
 
 .home__container {
@@ -73,10 +97,17 @@ body {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     line-height: 1.4;
+    color: #1a365d;
+    font-weight: 800;
+    letter-spacing: -0.025em;
 }
 
 .home__title-color {
-    color: #31708e;
+    color: #2b6cb0;
+    background: linear-gradient(120deg, #2b6cb0, #3182ce);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* About */
@@ -90,6 +121,12 @@ body {
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
+    color: #2d3748;
+}
+
+.about__text b {
+    color: #2b6cb0;
+    font-weight: 600;
 }
 
 /* Skills */
@@ -103,6 +140,12 @@ body {
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
+    color: #2d3748;
+}
+
+.skills__text b {
+    color: #2b6cb0;
+    font-weight: 600;
 }
 
 /* Work */
@@ -116,6 +159,7 @@ body {
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
+    color: #2d3748;
 }
 
 /* Contact */
@@ -134,26 +178,43 @@ body {
 .contact__input {
     width: 100%;
     padding: 1rem;
-    border: 2px solid #31708e;
+    border: 2px solid #e2e8f0;
     outline: none;
     border-radius: 0.5rem;
     font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    color: #2d3748;
+}
+
+.contact__input:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
 }
 
 .contact__button {
     display: inline-block;
-    background-color: #31708e;
-    color: #fff;
-    padding: 1rem 2rem;
+    background: linear-gradient(to right, #2b6cb0, #3182ce);
+    color: #ffffff;
+    padding: 1rem 2.5rem;
     border: none;
     border-radius: 0.5rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.025em;
 }
 
 .contact__button:hover {
-    background-color: #245571;
+    background: linear-gradient(to right, #2c5282, #2b6cb0);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.15);
+}
+
+.contact__button:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 /* Projects */
@@ -167,6 +228,7 @@ body {
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
+    color: #2d3748;
 }
 
 /* Media Queries */
@@ -205,4 +267,22 @@ body {
 
 .section.active {
     animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
 }
