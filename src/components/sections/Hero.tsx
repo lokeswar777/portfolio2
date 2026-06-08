@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
 import { MagneticButton } from "@/components/shared/MagneticButton";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export function Hero() {
   return (
@@ -57,32 +59,64 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="flex flex-col items-center gap-6"
         >
-          <MagneticButton>
-            <Button
-              size="lg"
-              className="rounded-full px-8 h-14 text-base font-medium group"
-              onClick={() => {
-                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-              }}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <MagneticButton>
+              <Button
+                size="lg"
+                className="rounded-full px-8 h-14 text-base font-medium group"
+                onClick={() => {
+                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                View Projects
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </MagneticButton>
+            
+            <MagneticButton>
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full px-8 h-14 text-base font-medium border-border/50 bg-background/50 backdrop-blur-md hover:bg-muted"
+                onClick={() => window.open(portfolioData.personal.resumeUrl, "_blank")}
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </Button>
+            </MagneticButton>
+          </div>
+
+          <div className="flex items-center gap-4 mt-2">
+            <a
+              href={portfolioData.personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full border border-border/50 bg-background/50 backdrop-blur-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all group"
+              aria-label="GitHub"
             >
-              View Projects
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </MagneticButton>
-          
-          <MagneticButton>
-            <Button
-              variant="outline"
-              size="lg"
-              className="rounded-full px-8 h-14 text-base font-medium border-border/50 bg-background/50 backdrop-blur-md hover:bg-muted"
-              onClick={() => window.open(portfolioData.personal.resumeUrl, "_blank")}
+              <FaGithub size={20} className="group-hover:scale-110 transition-transform" />
+            </a>
+            <a
+              href={portfolioData.personal.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full border border-border/50 bg-background/50 backdrop-blur-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all group"
+              aria-label="LinkedIn"
             >
-              <Download className="mr-2 h-4 w-4" />
-              Resume
-            </Button>
-          </MagneticButton>
+              <FaLinkedin size={20} className="group-hover:scale-110 transition-transform" />
+            </a>
+            <a
+              href={portfolioData.personal.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full border border-border/50 bg-background/50 backdrop-blur-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all group"
+              aria-label="LeetCode"
+            >
+              <SiLeetcode size={20} className="group-hover:scale-110 transition-transform" />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

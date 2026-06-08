@@ -9,6 +9,7 @@ export const portfolioData = {
     resumeUrl: "/resume.pdf",
     github: "https://github.com/lokeswar777",
     linkedin: "https://linkedin.com/lokeswar777",
+    leetcode: "https://leetcode.com/u/lokeswar777/",
   },
   skills: {
     frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux"],
@@ -51,7 +52,7 @@ export const portfolioData = {
       description: "A WebSocket-based real-time chat application with channels, direct messaging, and rich media sharing capabilities.",
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
       tech: ["Next.js", "Socket.io", "Redis", "Tailwind CSS"],
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/",
       liveUrl: "https://example.com",
     },
   ],
