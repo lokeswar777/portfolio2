@@ -8,7 +8,7 @@ export const portfolioData = {
     location: "Hyderabad, India",
     resumeUrl: "/resume.pdf",
     github: "https://github.com/lokeswar777",
-    linkedin: "https://linkedin.com/lokeswar777",
+    linkedin: "https://linkedin.com/in/lokeswar777",
     leetcode: "https://leetcode.com/u/lokeswar777/",
   },
   skills: {
