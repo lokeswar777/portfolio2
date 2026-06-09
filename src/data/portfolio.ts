@@ -55,6 +55,14 @@ export const portfolioData = {
       githubUrl: "https://github.com/",
       liveUrl: "https://example.com",
     },
+    {
+      id: 3,
+      title: "Money Tracker App",
+      description: "A personal finance management app that helps users track their expenses, set budgets, and visualize spending habits.",
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
+      tech: ["Html", "javascript", "supabase (SQL)"],
+      githubUrl: "https://github.com/lokeswar777/money"
+    }
   ],
   achievements: [
     {
