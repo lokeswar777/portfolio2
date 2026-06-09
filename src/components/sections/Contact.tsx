@@ -34,8 +34,8 @@ export function Contact() {
             <SpotlightCard className="p-8">
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2"><label className="text-sm font-medium text-foreground">Name</label><Input placeholder="John Doe" className="bg-background/50 border-border/50 focus:border-primary" /></div>
-                  <div className="space-y-2"><label className="text-sm font-medium text-foreground">Email</label><Input type="email" placeholder="john@example.com" className="bg-background/50 border-border/50 focus:border-primary" /></div>
+                  <div className="space-y-2"><label className="text-sm font-medium text-foreground">Name</label><Input placeholder="Maximus" className="bg-background/50 border-border/50 focus:border-primary" /></div>
+                  <div className="space-y-2"><label className="text-sm font-medium text-foreground">Email</label><Input type="email" placeholder="Dufas@wide.com" className="bg-background/50 border-border/50 focus:border-primary" /></div>
                 </div>
                 <div className="space-y-2"><label className="text-sm font-medium text-foreground">Subject</label><Input placeholder="Project Inquiry" className="bg-background/50 border-border/50 focus:border-primary" /></div>
                 <div className="space-y-2"><label className="text-sm font-medium text-foreground">Message</label><Textarea placeholder="Tell me about your project..." className="min-h-[150px] bg-background/50 border-border/50 focus:border-primary resize-none" /></div>
