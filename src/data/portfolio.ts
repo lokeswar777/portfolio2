@@ -12,11 +12,12 @@ export const portfolioData = {
     leetcode: "https://leetcode.com/u/lokeswar777/",
   },
   skills: {
+    Programming: ["Python","pySpark","SQL","java"],
     frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux"],
     backend: ["Node.js", "Express", "Python", "FastAPI", "GraphQL", "REST APIs"],
-    databases: ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM"],
-    devops: ["Docker", "AWS", "CI/CD", "GitHub Actions", "Vercel"],
-    tools: ["Git", "Jest", "Cypress", "Figma", "Postman"],
+    databases: ["PostgreSQL", "MongoDB", "Prisma ORM"],
+    devops: [ "GitHub Actions", "Vercel"],
+    tools: ["Git", "PowerBI","VS Code",],
   },
   experience: [
     {
@@ -73,9 +74,14 @@ export const portfolioData = {
     },
     {
       id: 2,
-      title: "First Place at HackGlobal 2022",
+      title: "Certified Python from HackerRank",
       date: "2022",
-      description: "Built a decentralized voting system prototype using blockchain technology.",
+      description: "Earned the Certified Python Programmer certification from HackerRank, showcasing proficiency in Python programming and problem-solving skills."
     },
+    {
+      id: 3,
+      title: "Solved 500 LeetCode Problems",
+      description: "Solved over 500 coding problems on LeetCode, covering a wide range of algorithms and data structures, and consistently ranked in the top 5% of users globally.",
+    }
   ],
 };
