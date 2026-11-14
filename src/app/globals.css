@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -37,6 +37,32 @@
 }
 
 :root {
+  /* Light theme */
+  --background: oklch(0.985 0.004 200);
+  --foreground: oklch(0.18 0.02 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 240);
+  --primary: oklch(0.52 0.1 200);
+  --primary-foreground: oklch(0.99 0 0);
+  --accent-2: oklch(0.55 0.2 290);
+  --secondary: oklch(0.95 0.006 220);
+  --secondary-foreground: oklch(0.22 0.02 240);
+  --muted: oklch(0.95 0.006 220);
+  --muted-foreground: oklch(0.47 0.02 240);
+  --accent: oklch(0.95 0.006 220);
+  --accent-foreground: oklch(0.22 0.02 240);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.89 0.008 220);
+  --input: oklch(0.89 0.008 220);
+  --ring: oklch(0.52 0.1 200);
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Dark theme */
   --background: oklch(0.11 0 0);
   --foreground: oklch(0.98 0 0);
   --card: oklch(0.13 0 0);
@@ -57,7 +83,6 @@
   --border: oklch(0.2 0 0);
   --input: oklch(0.2 0 0);
   --ring: oklch(0.8 0.13 195);
-  --radius: 0.75rem;
 }
 
 @layer base {
@@ -86,4 +111,21 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .animate-blob, .animate-ping { animation: none; }
+}
+
+/* Theme switch: circular reveal via the View Transitions API (see ThemeToggle). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Fallback for browsers without View Transitions: cross-fade colors briefly while switching. */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow, text-decoration-color !important;
+  transition-duration: 350ms !important;
+  transition-timing-function: ease !important;
 }

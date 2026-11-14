@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { portfolioData } from "@/data/portfolio";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -111,19 +112,23 @@ export function Navbar() {
           >
             Resume
           </a>
+          <ThemeToggle className="ml-2" />
         </nav>
 
-        {/* Mobile Nav Toggle */}
-        <button
-          type="button"
-          className="md:hidden text-foreground p-2 -mr-2"
-          onClick={() => setMobileMenuOpen((open) => !open)}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="text-foreground p-2 -mr-2"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav Menu */}

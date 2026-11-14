@@ -44,9 +44,9 @@ export default function RootLayout({
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased min-h-screen bg-background text-foreground selection:bg-primary/30`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
         >
           {children}
         </ThemeProvider>
