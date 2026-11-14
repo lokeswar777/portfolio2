@@ -1,7 +1,14 @@
-"use client";
-
 import { portfolioData } from "@/data/portfolio";
-import { FaGithub as Github, FaLinkedin as Linkedin, FaTwitter as Twitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+
+const { personal } = portfolioData;
+
+const socials = [
+  { href: personal.github, label: "GitHub", Icon: FaGithub },
+  { href: personal.linkedin, label: "LinkedIn", Icon: FaLinkedin },
+  { href: personal.leetcode, label: "LeetCode", Icon: SiLeetcode },
+];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,43 +18,32 @@ export function Footer() {
       <div className="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center md:items-start gap-2">
           <span className="text-xl font-bold tracking-tighter">
-            {portfolioData.personal.name}.
+            {personal.shortName}
+            <span className="text-primary">.</span>
           </span>
           <p className="text-sm text-muted-foreground text-center md:text-left max-w-sm">
-            {portfolioData.personal.tagline}
+            {personal.tagline}
           </p>
         </div>
 
         <div className="flex items-center gap-4">
-          <a
-            href={portfolioData.personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full border border-border/50 hover:bg-primary hover:text-primary-foreground transition-all"
-          >
-            <Github size={20} />
-          </a>
-          <a
-            href={portfolioData.personal.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full border border-border/50 hover:bg-primary hover:text-primary-foreground transition-all"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a
-            href={portfolioData.personal.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full border border-border/50 hover:bg-primary hover:text-primary-foreground transition-all"
-          >
-            <Twitter size={20} />
-          </a>
+          {socials.map(({ href, label, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="p-2 rounded-full border border-border/50 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+            >
+              <Icon size={20} />
+            </a>
+          ))}
         </div>
       </div>
       <div className="container mx-auto px-6 py-6 border-t border-border/50 text-center">
         <p className="text-sm text-muted-foreground">
-          © {currentYear} {portfolioData.personal.name}. All rights reserved.
+          © {currentYear} {personal.name}. All rights reserved.
         </p>
       </div>
     </footer>

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
 
 export function SpotlightCard({
   children,
@@ -56,7 +55,7 @@ export function SpotlightCard({
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.06), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, color-mix(in oklch, var(--primary) 12%, transparent), transparent 40%)`,
         }}
       />
       {children}

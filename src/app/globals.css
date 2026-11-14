@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -24,6 +24,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-2: var(--accent-2);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-card: var(--card);
@@ -42,26 +43,27 @@
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.13 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.98 0 0);
-  --primary-foreground: oklch(0.11 0 0);
+  --primary: oklch(0.8 0.13 195);
+  --primary-foreground: oklch(0.16 0.03 200);
+  --accent-2: oklch(0.66 0.19 290);
   --secondary: oklch(0.17 0 0);
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.17 0 0);
   --muted-foreground: oklch(0.65 0 0);
   --accent: oklch(0.17 0 0);
   --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.5 0.2 25);
+  --destructive: oklch(0.7 0.18 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.2 0 0);
   --input: oklch(0.2 0 0);
-  --ring: oklch(0.4 0 0);
+  --ring: oklch(0.8 0.13 195);
   --radius: 0.75rem;
 }
 
 @layer base {
   * { @apply border-border outline-ring/50; }
   body { @apply bg-background text-foreground; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 }
 
 .glass { @apply bg-background/60 backdrop-blur-md border border-border/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)]; }
@@ -80,3 +82,8 @@
 .animate-blob { animation: blob 7s infinite; }
 .animation-delay-2000 { animation-delay: 2s; }
 .animation-delay-4000 { animation-delay: 4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-blob, .animate-ping { animation: none; }
+}
